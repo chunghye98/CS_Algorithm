@@ -32,9 +32,3 @@ chore: Rename an existing file
 refactor: Solve [문제번호]
 
 ````
-
-## ✨ 스터디원
-|시오|무비| 지안                                                                                                     |루크|    
-|:---|:---|:-------------------------------------------------------------------------------------------------------|:---|    
-|<img src="https://avatars.githubusercontent.com/u/57451700?v=4" alt="chunghye98" width="100" height="100">|<img src="https://avatars.githubusercontent.com/u/98851575?v=4" alt="yhpark95" width="100" height="100">| <img src="https://avatars.githubusercontent.com/u/97204689?v=4" alt="sudago" width="100" height="100"> |<img src="https://avatars.githubusercontent.com/u/71162390?v=4" alt="kim seonggyu" width="100" height="100">|    
-|[chunghye98](https://github.com/chunghye98)|[yhpark95](https://github.com/yhpark95)| [sudago](https://github.com/sudago)                                                                    |[kimseonggyu](https://github.com/acceptor-gyu)|
