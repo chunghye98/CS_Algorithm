@@ -14,7 +14,10 @@ public class Main {
     public static String solve(String input) {
 
         int count = 0;
-        // (((()))) => 1 -> 2 -> 3 -> 4 -> 3 -> 2 -> 1 -> 0
+        // ((())) => 1 -> 2 -> 3 -> 2 -> 1 -> 0 ==> "YES
+        // (()))( => 1 -> 2 -> 1 -> 0 -> -1 ==> "NO"
+        // (())( => 1 -> 2 -> 1 -> 0 -> 1 ==> "NO"
+        // ))(( => -1 ==> "NO"
         for (char c : input.toCharArray()) {
             if (c == '(') {
                 count++;
