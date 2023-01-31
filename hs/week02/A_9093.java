@@ -2,7 +2,11 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-// 단어 뒤집기
+/* 단어 뒤집기
+   1. 입력 문자열을 공백 기준으로 배열 변환
+   2. 각 문자를 StringBuffer의 reverse()를 사용해서 뒤집기
+   3. 뒤집은 문자를 StringBuilder에 넣어서 리턴
+ */
 public class A_9093 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
