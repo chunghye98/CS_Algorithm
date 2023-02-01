@@ -1,3 +1,5 @@
+package Movie;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -19,7 +21,6 @@ public class VPS {
                 } else {
                     isVPS--;
                 }
-
                 if (isVPS < 0){
                     break;
                 }
@@ -32,12 +33,6 @@ public class VPS {
                 sb.append("NO\n");
             }
         }
-
-
         System.out.print(sb);
-
-
-
-
     }
 }
