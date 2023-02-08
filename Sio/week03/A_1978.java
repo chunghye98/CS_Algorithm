@@ -26,7 +26,7 @@ public class A_1978 {
 
     private static int findFactors(int number) {
         int size = 0;
-        for (int i = 1; i <= number; i++) {
+        for (int i = 1; i <= number; i++) { // 제곱근까지 찾는게 더 반복문 조금 돈다,,지안짱
             if (number % i == 0) {
                 size++;
             }
