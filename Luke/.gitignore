@@ -1,8 +1,8 @@
+*idea
 ../.idea
-../../.idea
-
+../.
+./FORMAT.md
 Foo/
-
 ### macOS ###
 # General
 .DS_Store
