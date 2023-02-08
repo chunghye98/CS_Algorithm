@@ -10,7 +10,7 @@
 > - 연산 중 count가 음수가 되면 "NO"를 반환한다. (`)` 문자가 `(` 문자보다 먼저 나온 경우
 > - 연산 결과가 0이 아니면 "NO"를 반환한다. (괄호의 짝이 맞지 않다는 뜻, `(` 문자로 끝난다.)
 > - 연산 결과가 0이면 "YES"를 반환한다.
-> 
+
 ```java
 import java.io.BufferedReader;
 import java.io.IOException;

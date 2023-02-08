@@ -4,8 +4,6 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 /**
- * 생각해보니까 최악의 상황에서는 B부터 45000까지 for문을 도는 것이 오히려 solve1보다 적은 연산을 할 수도 있겠다.
- *
  * solve2. 유클리드 호제법
  */
 
