@@ -20,7 +20,7 @@ public class PushPop {
         for(int i = 1; i <= T; i++){
             if (possible) {
                 int n = Integer.parseInt(br.readLine());
-                while((n != Sequence.peek()) && numbers <= n){
+                while(numbers <= n){
                     Sequence.push(numbers);
                     numbers++;
                     sb.append("+\n");
