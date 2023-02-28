@@ -13,7 +13,7 @@ import java.util.Stack;
     - 직전이 ( 인가 -> 레이저이므로 stack.pop 해서 레이저 없애버리고 stack.size를 result에 누적
     - 직전이 ) 이면 -> 레이저 아니고 그냥 막대니까 result +1
  */
-public class D_10799 {
+public class C_10799 {
     public static void main(String[] args) throws IOException {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
