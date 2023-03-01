@@ -53,5 +53,6 @@ public class A_10844 {
         }
         return (dp[n][0] + dp[n][1] + dp[n][2] + dp[n][3] + dp[n][4]
                 + dp[n][5] + dp[n][6] + dp[n][7] + dp[n][8] + dp[n][9]) % 1000000000;
+        // 리턴할 때 long으로 나오는듯?
     }
 }
