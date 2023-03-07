@@ -34,14 +34,9 @@ public class OKunSu {
                 if(list.get(deque.peekLast()) >= list.get(j)){
                     deque.addLast(j);
                 } else {
-                    int count = 0;
-                    while (list.get(deque.peekFirst()) >= list.get(j)){
-                        count++;
-                        deque.addLast(deque.pollFirst());
-                    }
-                    count = deque.size() - count;
-                    for(int k = 0; k < count; k++){
-                        result[deque.pollFirst()] = list.get(j);
+
+                    while (!deque.isEmpty() && list.get(deque.peekLast()) < list.get(j)){
+                        result[deque.pollLast()] = list.get(j);
                     }
                     deque.addLast(j);
                 }
