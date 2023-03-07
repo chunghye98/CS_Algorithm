@@ -11,10 +11,10 @@ N = int(sys.stdin.read())
 
 
 count = 0
-five = 5
+five = 2
 while five <= N:
     count += int(N/five)
-    five *= 5
+    five *= 2
 
 
 print(int(count))
