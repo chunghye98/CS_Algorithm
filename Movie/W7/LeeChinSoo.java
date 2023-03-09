@@ -9,8 +9,8 @@ public class LeeChinSoo {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
-
-        long[] dp = new long[91];
+        //처음에 int로 해서 에러 & 91로 초기화 안해서 N=1일 때 에러남.
+        long[] dp = new long[91]; // 원래 int[] dp = new int[N+1];
         dp[1] = 1;
         dp[2] = 1;
 
