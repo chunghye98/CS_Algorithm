@@ -23,6 +23,8 @@ import java.util.StringTokenizer;
 <의문>
 - for문 안에 재귀를 돌렸는데 그럼 O(n^2)이지 않나
 - 시간 초과가 떠야 하지 않을까
+- -> 유클리드 호제법의 O(logN)
+- 전체 시간복잡도는 O(nlogn)
  */
 public class B_17087 {
     public static void main(String[] args) throws IOException {
