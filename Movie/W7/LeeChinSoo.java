@@ -19,8 +19,6 @@ public class LeeChinSoo {
         }
         System.out.println(dp[N]);
 
-
-
     }
 
 }
