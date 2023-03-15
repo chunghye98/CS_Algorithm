@@ -59,7 +59,7 @@ public class DFSandBFS {
             list.get(b).connection.add(list.get(a));
         }
         //N은 커도 M은 작을 수 있기에, 출력해야 하는 리미트를 다른 노드와 연결되어 있는 노드의 수 만큼으로 설정한다.
-        int limit =(int) list.stream().filter(e-> !e.connection.isEmpty()).count();
+        int limit = (int) list.stream().filter(e -> !e.connection.isEmpty()).count();
 
         System.out.println(DFS(limit, V, list));
         System.out.println(BFS(limit, V, list));
@@ -69,8 +69,8 @@ public class DFSandBFS {
 
     private static String BFS(int N, int V, List<Node> list) {
         //시작 정점이 다른 노드와 연결이 안되어 있을 경우 시작 값만 리턴
-        if(list.get(V).connection.isEmpty()){
-            return ""+ V;
+        if (list.get(V).connection.isEmpty()) {
+            return "" + V;
         }
         StringBuilder sbBFS = new StringBuilder();
         //시작 정점값을 미리 sb에 넣어준다
@@ -89,9 +89,9 @@ public class DFSandBFS {
         while (passedList.size() < N) {
 
             //current에 연결되어 있는 노드 수 만큼 루프
-            for(Node node : current.connection){
+            for (Node node : current.connection) {
                 //만약 이미 탐색되어 있지 않고, 리턴 값이 1001(더이상 연결 점이 없다는 뜻)이 아니라면 값을 추가하고 passedList에 추가
-                if (!passedList.contains(current.getSmallestAfter(passedList)) && current.getSmallestAfter(passedList).value != 1001){
+                if (!passedList.contains(current.getSmallestAfter(passedList)) && current.getSmallestAfter(passedList).value != 1001) {
                     sbBFS.append(current.getSmallestAfter(passedList).value).append(" ");
                     passedList.add(current.getSmallestAfter(passedList));
                 }
@@ -111,8 +111,8 @@ public class DFSandBFS {
     }
 
     private static String DFS(int N, int V, List<Node> list) {
-        if(list.get(V).connection.isEmpty()){
-            return "" +V;
+        if (list.get(V).connection.isEmpty()) {
+            return "" + V;
         }
         StringBuilder sbDFS = new StringBuilder();
         sbDFS.append(V).append(" ");
@@ -121,16 +121,16 @@ public class DFSandBFS {
         passedList.add(current);
 
 
-        while (passedList.size()  < N) {
+        while (passedList.size() < N) {
             //만약 리턴 값이 1001(더이상 연결 점이 없다는 뜻)이 아니라면 값을 추가하고 passedList에 추가
-            if(current.getSmallestAfter(passedList).value != 1001){
+            if (current.getSmallestAfter(passedList).value != 1001) {
                 sbDFS.append(current.getSmallestAfter(passedList).value).append(" ");
                 current = current.getSmallestAfter(passedList);
                 passedList.add(current);
             } else {
                 //더이상 연결 점이 없다면 탐색되지 않은 노드를 가지고 있는 노드로 돌아간다.
                 int index = passedList.size();
-                while (current.getSmallestAfter(passedList).value == 1001){
+                while (current.getSmallestAfter(passedList).value == 1001) {
                     index--;
                     current = passedList.get(index);
                 }
