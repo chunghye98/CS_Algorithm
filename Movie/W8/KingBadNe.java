@@ -40,7 +40,6 @@ public class KingBadNe {
                                 chessBoard[stonePos[0]][stonePos[1]] = true;
                             }
                         } else {
-
                             kingPos[0] += 1;
                         }
                     }
