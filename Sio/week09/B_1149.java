@@ -10,7 +10,9 @@ import java.util.StringTokenizer;
 - i(2 ≤ i ≤ N-1)번 집의 색은 i-1번, i+1번 집의 색과 같지 않아야 한다.
     이 조건을 충족하지 못해서 고민함
 - 입력 예제 5번에서 내 값에 계속 310이 나옴
-
+- 구글링해서 해결
+- 모든 경우의 수를 구해야 한다.
+- 아직도 이해가 안된다.
  */
 public class B_1149 {
     public static void main(String[] args) throws IOException {
