@@ -25,26 +25,31 @@ public class 트럭_13335 {
 
         Deque<Integer> bridge = new ArrayDeque<>();
 
-        for (int i = 0; i < w; i++) {
+        for (int i = 1; i < w; i++) {
             bridge.addLast(0);
         }
 
+        int weightOfTrucksOnBridge = 0;
         int time = 1;
-        bridge.pollFirst();
-        bridge.add(truck.pollFirst());
+        int firstTruck = truck.pollFirst();
+        weightOfTrucksOnBridge += firstTruck;
+        bridge.add(firstTruck);
 
         while (!truck.isEmpty()) {
             time++;
             if (bridge.peekFirst() > 0) {
-                bridge.pollFirst();
+                int out = bridge.pollFirst();
+                weightOfTrucksOnBridge -= out;
                 bridge.addFirst(0);
             }
 
-            if (checkBridgeWeight(bridge) + truck.peekFirst() > L) {
+            if (weightOfTrucksOnBridge + truck.peekFirst() > L) {
                 bridge = move(bridge);
             } else {
+                int now = truck.pollFirst();
+                bridge.addLast(now);
+                weightOfTrucksOnBridge += now;
                 bridge.pollFirst();
-                bridge.addLast(truck.pollFirst());
             }
 
         }
@@ -55,18 +60,5 @@ public class 트럭_13335 {
     private static Deque<Integer> move(Deque<Integer> bridge) {
         bridge.addLast(bridge.pollFirst());
         return bridge;
-    }
-
-    private static int checkBridgeWeight(Deque<Integer> bridge) {
-        int sum = 0;
-
-        int size = bridge.size();
-        for (int i = 0; i < size; i++) {
-            int temp = bridge.pollFirst();
-            sum += temp;
-            bridge.addLast(temp);
-        }
-
-        return sum;
     }
 }
