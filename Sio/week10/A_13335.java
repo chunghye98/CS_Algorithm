@@ -22,24 +22,19 @@ public class A_13335 {
 
     private static void solve() {
         int time = 0;
-        while (!queue.isEmpty() || !queueW.isEmpty()){
+        while (!queueW.isEmpty()){
             time++;
-            if (queueW.size() == w) {
-                queueW.poll();
-            }
+            queueW.poll();
             if (sumQueue() + findPeek() <= l) {
                 if (findPeek() == 0) {
-                    if (queueW.peek() == 0) {
-                        break;
-                    }
-                    queueW.add(0);
-                } else {
-                    queueW.add(queue.poll());
+                    break;
                 }
+                queueW.add(queue.poll());
             } else {
                 queueW.add(0);
             }
         }
+        time += queueW.size();
         System.out.println(time);
     }
 
@@ -75,6 +70,10 @@ public class A_13335 {
         st = new StringTokenizer(br.readLine());
         for (int i = 0; i < n; i++) {
             queue.add(Integer.parseInt(st.nextToken()));
+        }
+
+        for (int i = 0; i < w; i++) {
+            queueW.add(0);
         }
     }
 }
