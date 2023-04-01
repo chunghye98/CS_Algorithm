@@ -1,7 +1,5 @@
 package W8;
 
-import com.mysql.cj.conf.IntegerProperty;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
