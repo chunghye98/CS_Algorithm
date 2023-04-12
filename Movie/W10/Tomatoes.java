@@ -77,13 +77,6 @@ public class Tomatoes {
             }
         }
 
-
-
-
-
-
-
-
     }
 
     private static int BFS() {
