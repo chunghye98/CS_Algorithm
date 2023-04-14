@@ -11,8 +11,6 @@ import java.util.StringTokenizer;
 - 1% 틀렸습니다 이유
 10,000 이하의 자연수로 이루어진 길이 N짜리 수열이라고 해서 min의 초기값을 10,001로 잡아버림
 n의 길이는 100,000 이하이므로 초기값을 100,001로 해야 풀린다.
-
-
  */
 public class C_1806 {
     private static int n;
