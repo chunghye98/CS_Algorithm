@@ -14,17 +14,23 @@ public class C_2531 {
         input();
 
         int max = Integer.MIN_VALUE;
-        Set set;
+        int start = 0;
+        int end = 0;
+        Set<Integer> set = new HashSet<>();
 
-        for (int i = 0; i < n; i++) {
-            set = new HashSet();
-            for (int j = 0; j < k; j++) {
-                set.add(belt.get(i + j));
+        while (start < n + k - 1 && end < n + k - 1) {
+            if ((end - start) == k) {
+                start++;
+                end = start;
+                set.add(c);
+                max = Math.max(max, set.size());
+                set = new HashSet<>();
             }
-            set.add(c);
-            max = Math.max(max, set.size());
-        }
 
+            set.add(belt.get(end));
+            end++;
+
+        }
         System.out.println(max);
     }
 
