@@ -27,7 +27,7 @@ public class C_2531 {
         int end = 0;
         Set<Integer> set = new HashSet<>();
 
-        while (start < n + k - 1 && end < n + k - 1) {
+        while (start < n + k && end < n + k) {
             if ((end - start) == k) {
                 start++;
                 end = start;
@@ -52,7 +52,7 @@ public class C_2531 {
         c = Integer.parseInt(st.nextToken());
 
         belt = new ArrayList<>();
-        for (int i = 0; i < n + k - 1; i++) {
+        for (int i = 0; i < n + k; i++) {
             if (i < n) {
                 belt.add(Integer.parseInt(br.readLine()));
             } else {
