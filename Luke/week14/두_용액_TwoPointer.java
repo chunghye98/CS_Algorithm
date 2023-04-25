@@ -25,29 +25,30 @@ public class 두_용액_TwoPointer {
 
         int left = 0;
         int right = N - 1;
-        int resultOfL = left;
-        int resultOfR = right;
-        int min = solutions[left] + solutions[right];
+        int resultOfL = solutions[left];
+        int resultOfR = solutions[right];
+        int min = Math.abs(solutions[left] + solutions[right]);
+        int sum;
+        int temp;
 
         while (left < right) {
 
-            if (solutions[left] + solutions[right] > 0) {
+            sum = solutions[left] + solutions[right];
+            temp = Math.abs(sum);
+
+            if (min > temp) {
+                min = temp;
+                resultOfR = solutions[right];
+                resultOfL = solutions[left];
+            }
+
+            if (sum > 0) {
                 right--;
-            }
-
-            if (solutions[left] + solutions[right] < 0) {
+            } else {
                 left++;
-            }
-
-            if (Math.abs(min) > Math.abs(solutions[left] + solutions[right])) {
-                min = solutions[left] + solutions[right];
-                resultOfR = right;
-                resultOfL = left;
             }
         }
 
-        StringBuilder sb = new StringBuilder();
-        sb.append(solutions[resultOfL] + " " + solutions[resultOfR]);
-        System.out.println(sb);
+        System.out.println(resultOfL + " " + resultOfR);
     }
 }
