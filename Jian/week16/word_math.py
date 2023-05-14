@@ -1,33 +1,28 @@
 # 1339번, 단어 수학
 # 틀린 이유: 제일 앞에 오는 단어부터 큰 숫자를 부여했기 때문.
+# 수정: 각 알파벳의 등장 횟수에 따른 합산 금액(?)에 따라 큰 숫자 부여
 
 import sys
 inp = sys.stdin.readline
 
 n = int(inp().rstrip())
-inputs = [list(reversed(list(inp().rstrip()))) for _ in range(n)]  # 뒤집어서 넣어준다.
-alpha = {}
-max_len = 0
-number = 9
+inputs = [list(inp().rstrip()) for _ in range(n)]
+dic = {}
 result = 0
+max_num = 9
 
-for words in inputs:  # 최대 단어 길이 구하기
-    if len(words) > max_len:
-        max_len = len(words)
+for words in inputs:
+    for i in range(len(words)):
+        al = words[i]
+        if al in dic:
+            dic[al] += 10 ** (len(words)-i-1)
+        else:
+            dic[al] = 10 ** (len(words)-i-1)
 
-while max_len >= 0:
-    for words in inputs:
-        if max_len <= len(words):  # 최대 길이보다 같거나 큰 요소한테만 적용
-            al = words[max_len-1]
-            if str(type(al)) == "<class 'str'>":  # al이 str일 때만 - 이미 숫자로 변경 되었다면 숫자가 dict에 저장되고 배열의 요소가 초기화 되어버린다.
-                if al not in alpha: # 알파벳이 없으면 key(알파벳), value(숫자)를 생성하고 배열에도 넣어준다.
-                    alpha[al] = number
-                    number -= 1
-                # 알파벳이 있으면 배열에 해당 알파벳 key에 맞는 value를 넣어준다.
-                words[max_len-1] = alpha[al]
-    max_len -= 1
+numbers = sorted(dic.values(), reverse=True)  # 내림차순 정렬
 
-for words in inputs:  # 숫자 배열 -> 문자열 -> 문자열 다시 뒤집기 -> 문자열 합치기 -> 숫자로 바꾸기
-    result += int(''.join(list(reversed(list(map(str, words))))))
+for n in numbers:
+    result += n * max_num
+    max_num -= 1
 
 print(result)
