@@ -17,6 +17,21 @@ import java.util.*;
 7. dist[] 배열 1부터 탐색하면서 값이 Integer.MAX_VALUE이면 INF 출력하고 아니면 값 출력
  */
 public class A_1753 {
+    static class Node implements Comparable<Node>{
+        int index;
+        int cost;
+
+        public Node(final int index, final int cost) {
+            this.index = index;
+            this.cost = cost;
+        }
+
+        @Override
+        public int compareTo(final Node o) {
+            return Integer.compare(this.cost, o.cost);
+        }
+    }
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -63,17 +78,4 @@ public class A_1753 {
     }
 }
 
-class Node implements Comparable<Node>{
-    int index;
-    int cost;
 
-    public Node(final int index, final int cost) {
-        this.index = index;
-        this.cost = cost;
-    }
-
-    @Override
-    public int compareTo(final Node o) {
-        return Integer.compare(this.cost, o.cost);
-    }
-}
