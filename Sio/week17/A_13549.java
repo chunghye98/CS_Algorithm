@@ -5,7 +5,9 @@ import java.util.*;
 - 시간 제한: 2초
 - 다익스트라 문제
 < 접근 방법 >
-
+- 처음 접근한 방법이 왜 안됐는지 모르겟다
+- 참고 사이트: https://tang25.tistory.com/21
+- 어렵다
 
  */
 public class A_13549 {
@@ -28,49 +30,33 @@ public class A_13549 {
         StringTokenizer st = new StringTokenizer(br.readLine());
         int start = Integer.parseInt(st.nextToken());
         int end = Integer.parseInt(st.nextToken());
-
-        List<List<Node>> graph = new ArrayList<>();
-        for (int i = 0; i <= end + 1; i++) {
-            graph.add(new ArrayList<>());
-        }
-
-        for (int i = start; i <= end + 1; i++) {
-            if (start <= i - 1) {
-                graph.get(i).add(new Node(i - 1, 1));
-            }
-            if (i + 1 <= end) {
-                graph.get(i).add(new Node(i + 1, 1));
-            }
-            if (i * 2 <= end + 1) {
-                graph.get(i).add(new Node(i * 2, 0));
-            }
-        }
-
         boolean[] visited = new boolean[100_000 + 1];
-        int[] dist = new int[100_000 + 1];
-        Arrays.fill(dist, Integer.MAX_VALUE);
+        int result = Integer.MAX_VALUE;
 
         PriorityQueue<Node> queue = new PriorityQueue<>();
         queue.add(new Node(start, 0));
-        dist[start] = 0;
 
         while (!queue.isEmpty()) {
             Node curNode = queue.poll();
-
-            if (visited[curNode.index]) {
-                continue;
-            }
-
             visited[curNode.index] = true;
 
-            for (Node next : graph.get(curNode.index)) {
-                if (!visited[next.index] && dist[next.index] > curNode.cost + next.cost) {
-                    dist[next.index] = curNode.cost + next.cost;
-                    queue.add(new Node(next.index, dist[next.index]));
-                }
+            if (curNode.index == end) {
+                result = curNode.cost;
+                break;
+            }
+
+            if (curNode.index * 2 < 100_001 && !visited[curNode.index * 2]) {
+                queue.add(new Node(curNode.index * 2, curNode.cost));
+            }
+
+            if (curNode.index + 1 < 100_001 && !visited[curNode.index + 1]) {
+                queue.add(new Node(curNode.index + 1, curNode.cost + 1));
+            }
+
+            if (curNode.index - 1 >= 0 && !visited[curNode.index - 1]) {
+                queue.add(new Node(curNode.index - 1, curNode.cost + 1));
             }
         }
-
-        System.out.println(dist[end]);
+        System.out.println(result);
     }
 }
