@@ -3,6 +3,9 @@ import java.util.*;
 
 /* 1916, 최소비용 구하기
 - 시간 제한: 0.5초
+- 다익스트라 알고리즘 문제
+- 1753번이랑 거의 유사
+- 방문 체크 안했더니 20%에서 시간초과
  */
 public class B_1916 {
     static class Node implements Comparable<Node> {
@@ -43,6 +46,7 @@ public class B_1916 {
         int start = Integer.parseInt(st.nextToken());
         int end = Integer.parseInt(st.nextToken());
 
+        boolean[] visited = new boolean[N + 1];
         int[] dist = new int[N + 1];
         Arrays.fill(dist, Integer.MAX_VALUE);
 
@@ -52,8 +56,14 @@ public class B_1916 {
         while (!queue.isEmpty()) {
             Node curNode = queue.poll();
 
+            if (visited[curNode.index]) {
+                continue;
+            }
+
+            visited[curNode.index] = true;
+
             for (Node next : graph.get(curNode.index)) {
-                if (dist[next.index] > curNode.cost + next.cost) {
+                if (!visited[next.index] &&dist[next.index] > curNode.cost + next.cost) {
                     dist[next.index] = curNode.cost + next.cost;
                     queue.add(new Node(next.index, dist[next.index]));
                 }
