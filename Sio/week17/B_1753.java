@@ -16,7 +16,7 @@ import java.util.*;
     3. 다음 노드와 최소거리를 큐에 저장
 7. dist[] 배열 1부터 탐색하면서 값이 Integer.MAX_VALUE이면 INF 출력하고 아니면 값 출력
  */
-public class A_1753 {
+public class B_1753 {
     static class Node implements Comparable<Node>{
         int index;
         int cost;

@@ -7,7 +7,7 @@ import java.util.*;
 - 1753번이랑 거의 유사
 - 방문 체크 안했더니 20%에서 시간초과
  */
-public class B_1916 {
+public class C_1916 {
     static class Node implements Comparable<Node> {
         int index;
         int cost;
