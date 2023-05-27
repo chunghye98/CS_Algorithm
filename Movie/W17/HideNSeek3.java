@@ -1,11 +1,9 @@
-package W11;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
-public class HideSeek {
+public class HideNSeek3 {
     static class Node {
         List<Node> connectedList = new ArrayList<>();
         int value;
@@ -59,7 +57,6 @@ public class HideSeek {
 
     }
 
-    //5 10 9 18 36
     private static int bfs(Queue<Node> queue, int K) {
         Queue<Node> temp = new ArrayDeque<>();
 
