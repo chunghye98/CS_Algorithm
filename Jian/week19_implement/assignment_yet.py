@@ -1,10 +1,9 @@
 # 5597번, 과제 안 내신 분..?
-import heapq
-students = []
-for _ in range(28):
-    heapq.heappush(students, int(input()))
+students = [i for i in range(1, 31)]  # 1부터 31까지 배열에 넣는다.
 
-for i in range(1, 31):
-    if i not in students:
-        print(i)
+for _ in range(28):  # 값 제거
+    students.remove(int(input()))
+
+print(min(students)) # 최소 번호 출력
+print(max(students)) # 최대 번호 출력
 
