@@ -12,42 +12,21 @@ commands = list(map(int, input().rstrip().split())) # 동1 서2 북3 남4
 moves = [(0, 0), (0, 1), (0, -1), (-1, 0), (1, 0)]  # none, 동, 서, 북, 남
 # 주사위
 dice = dict()
-dice["top"] = 0
-dice["bottom"] = 0
-dice["front"] = 0
-dice["back"] = 0
-dice["left"] = 0
-dice["right"] = 0
+dice["top"], dice["bottom"], dice["front"], dice["back"], dice["left"], dice["right"] = 0, 0, 0, 0, 0, 0
 # 현재 위치
 now = dict()
-now["x"] = x
-now["y"] = y
+now["x"], now["y"] = x, y
 
 def change_dice(co):  # 주사위 내부 이동
+    top, bottom, front, back, left, right = dice["top"], dice["bottom"], dice["front"], dice["back"], dice["left"], dice["right"]
     if co == 1:  # 동쪽 이동 = front, back 그대로 유지
-        temp = dice["top"]
-        dice["top"] = dice["left"]
-        dice["left"] = dice["bottom"]
-        dice["bottom"] = dice["right"]
-        dice["right"] = temp
+        dice["top"], dice["bottom"], dice["left"], dice["right"] = left, right, bottom, top
     if co == 2:  # 서쪽 이동 = front, back 그대로 유지
-        temp = dice["top"]
-        dice["top"] = dice["right"]
-        dice["right"] = dice["bottom"]
-        dice["bottom"] = dice["left"]
-        dice["left"] = temp
+        dice["top"], dice["bottom"], dice["left"], dice["right"] = right, left, top, bottom
     if co == 3:  # 북쪽 이동 = left, right 그대로 유지
-        temp = dice["top"]
-        dice["top"] = dice["front"]
-        dice["front"] = dice["bottom"]
-        dice["bottom"] = dice["back"]
-        dice["back"] = temp
+        dice["top"], dice["bottom"], dice["front"], dice["back"] = front, back, bottom, top
     if co == 4:  # 남쪽 이동 = left, right 그대로 유지
-        temp = dice["top"]
-        dice["top"] = dice["back"]
-        dice["back"] = dice["bottom"]
-        dice["bottom"] = dice["front"]
-        dice["front"] = temp
+        dice["top"], dice["bottom"], dice["front"], dice["back"] = back, front, top, bottom
 
 
 # 1. 지도에서 현재 주사위 위치 이동
@@ -60,8 +39,8 @@ for co in commands:
         continue
     # 지도에서 현재 위치 이동 가능하면, 주사위 내부 숫자 바꾸기
     change_dice(co)
-    now["x"] = nx  # 현재 위치 재설정
-    now["y"] = ny
+    now["x"], now["y"] = nx , ny # 현재 위치 재설정
+
     if maps[nx][ny] == 0:  # 지도의 바닥이 0이면
         maps[nx][ny] = dice["bottom"]  # 주사위의 바닥면을 현재 지도의 칸에 복사
     else:  # 지도의 바닥이 0이 아니라면
