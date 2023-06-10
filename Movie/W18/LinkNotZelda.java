@@ -49,7 +49,7 @@ public class LinkNotZelda {
 
 
             StringTokenizer st;
-            int[][] map = new int[N][N];
+//            int[][] map = new int[N][N];
 
             for (int i = 0; i < N; i++) {
                 st = new StringTokenizer(br.readLine());
@@ -57,6 +57,7 @@ public class LinkNotZelda {
                     list.get(i * N + j).value = Integer.parseInt(st.nextToken());
                 }
             }
+
             distance = new int[N * N];
             Arrays.fill(distance, Integer.MAX_VALUE);
 

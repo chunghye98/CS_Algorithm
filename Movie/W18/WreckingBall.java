@@ -29,7 +29,7 @@ public class WreckingBall {
         if(max < sum && sum <= M) max = sum;
 
         while(right < N){
-            if(left == right && holes[left] > M){
+            if(left == right && holes[left]  >M){
                 left++;
                 if(left > N - 1) break;
                 sum += holes[left];
