@@ -3,6 +3,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+/* 1913, 달팽이
+- 구현문제
+- 경계를 만나거나 이미 값이 차있으면 방향 전환
+ */
 public class A_1913 {
     private static String direction;
     private static int[][] map;
